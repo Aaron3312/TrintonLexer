@@ -202,11 +202,17 @@ class Parser:
         name_tok   = self.match(ID)
         annotation = None
         if self.lookahead.type == COLON:
+            colon_tok = self.lookahead
             self.advance()
             ns   = self.match(ID).value
             self.match(DOT)
             attr = self.match(ID).value
             annotation = f"{ns}.{attr}"
+            if annotation != "tl.constexpr":
+                raise ParseError(
+                    f"anotación de parámetro inválida '{annotation}', se espera 'tl.constexpr'",
+                    colon_tok.line, colon_tok.col,
+                )
         return ParamNode(name=name_tok.value, annotation=annotation)
 
     def parse_stmt_list(self) -> List[object]:

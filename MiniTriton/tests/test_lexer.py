@@ -9,7 +9,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from TrintonLexer.MiniTriton.lexer import (
+from lexer import (
     tokenize, Token,
     AT, COLON, COMMA, DOT, EQUALS, EOF,
     ID, LBRACE, LPAREN, MINUS, NUMBER,
