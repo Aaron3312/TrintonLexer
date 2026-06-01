@@ -17,26 +17,29 @@ Desarrollado como entregable de la actividad **3.2 — Gramáticas libres de con
 ## Estructura del proyecto
 
 ```
-MiniTriton/
-├── lexer.py                  ← Analizador léxico (módulo importable + CLI)
-├── mini_triton_parser.py     ← Analizador sintáctico + construcción de AST (CLI principal)
-├── tests/
-│   ├── test_lexer.py         ← Suite pytest del lexer (~55 tests)
-│   ├── valid_01.tri          ← Casos léxica y sintácticamente válidos
-│   ├── valid_02.tri
-│   ├── valid_03.tri
-│   ├── valid_04.tri
-│   ├── valid_05.tri
-│   ├── valid_06.tri
-│   ├── valid_07.tri
-│   ├── invalid_01.tri        ← Casos con errores sintácticos
-│   ├── invalid_02.tri
-│   ├── invalid_03.tri
-│   ├── invalid_04.tri
-│   ├── invalid_05.tri
-│   └── invalid_06.tri
-└── README.md
+TrintonLexer/
+└── MiniTriton/
+    ├── lexer.py                  ← Analizador léxico (módulo importable + CLI)
+    ├── mini_triton_parser.py     ← Analizador sintáctico + construcción de AST (CLI principal)
+    ├── tests/
+    │   ├── test_lexer.py         ← Suite pytest del lexer (~55 tests)
+    │   ├── valid_01.tri          ← Casos léxica y sintácticamente válidos
+    │   ├── valid_02.tri
+    │   ├── valid_03.tri
+    │   ├── valid_04.tri
+    │   ├── valid_05.tri
+    │   ├── valid_06.tri
+    │   ├── valid_07.tri
+    │   ├── invalid_01.tri        ← Casos con errores sintácticos
+    │   ├── invalid_02.tri
+    │   ├── invalid_03.tri
+    │   ├── invalid_04.tri
+    │   ├── invalid_05.tri
+    │   └── invalid_06.tri
+    └── README.md
 ```
+
+> Todos los comandos siguientes se ejecutan desde dentro de `TrintonLexer/MiniTriton/`.
 
 ---
 
@@ -55,6 +58,7 @@ Tokenizador que escanea un archivo fuente `.tri` y produce una lista de tokens t
 ### Uso como CLI
 
 ```bash
+# Desde TrintonLexer/MiniTriton/
 python lexer.py tests/valid_01.tri
 ```
 
@@ -119,8 +123,11 @@ for tok in tokens:
 ### Correr los tests del lexer
 
 ```bash
+# Desde TrintonLexer/MiniTriton/
 pytest tests/test_lexer.py -v
 ```
+
+> `test_lexer.py` agrega automáticamente `MiniTriton/` al `sys.path` vía `sys.path.insert`, por lo que no se requiere instalar el paquete ni configurar `PYTHONPATH`.
 
 ---
 
@@ -131,6 +138,8 @@ Parser descendente recursivo LL(1) que consume los tokens del lexer, construye u
 ### Uso como CLI
 
 ```bash
+# Desde TrintonLexer/MiniTriton/
+
 # Archivo válido → imprime VALIDO + AST
 python mini_triton_parser.py tests/valid_07.tri
 
