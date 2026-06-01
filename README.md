@@ -1,4 +1,4 @@
-# TrintonLexer
+# TrintonLexer — General Triton Lexer
 
 Lexer para **Mini-Triton**, un DSL simplificado inspirado en OpenAI Triton.  
 Desarrollado como componente de la tarea de compiladores.
@@ -9,7 +9,7 @@ Desarrollado como componente de la tarea de compiladores.
 TrintonLexer/
 ├── lexer.py          ← tokenizador (módulo importable + CLI)
 ├── tests/
-│   ├── test_lexer.py ← suite pytest (~30 tests)
+│   ├── test_lexer.py ← suite pytest (~55 tests)
 │   ├── valid_01.tri  ← casos léxicamente válidos
 │   │   ...
 │   ├── valid_07.tri
@@ -82,7 +82,6 @@ for tok in tokens:
 ## Correr los tests
 
 ```bash
-# requiere pytest
 pip install pytest
 pytest tests/test_lexer.py -v
 ```
