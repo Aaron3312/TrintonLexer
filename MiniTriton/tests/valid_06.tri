@@ -1,1 +1,4 @@
-@triton.jit def p(x, BS: tl.constexpr): { y = tl.arange(0, BS); }
+@triton.jit
+def p(x, BS: tl.constexpr): {
+  y = tl.arange(0, BS);
+}

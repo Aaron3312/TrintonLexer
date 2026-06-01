@@ -1,2 +1,3 @@
-# INVALIDO: falta el decorador @triton.jit
-def add(x, y): { z = x + y; }
+def missing_decorator(x): {
+  y = x + 1;
+}

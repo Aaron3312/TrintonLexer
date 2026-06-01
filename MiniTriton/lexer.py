@@ -28,7 +28,7 @@ RPAREN    )
 SEMICOLON ;
 SLASH     /
 STAR      *
-ID        identificador  ([A-Za-z_]\w*)
+ID        identificador  ([A-Za-z_]\\w*)
 EOF       fin de entrada (token sintético)
 
 Nota: 'tl.load' se produce como  ID("tl")  DOT  ID("load").

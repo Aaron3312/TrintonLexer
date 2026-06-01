@@ -1,1 +1,4 @@
-@triton.jit def add(x, y): { z = x + y; }
+@triton.jit
+def add(x, y): {
+  z = x + y;
+}

@@ -1,9 +1,11 @@
-# Mini-Triton — Lexer + Parser
+# Mini-Triton Parser
 
-Analizador léxico y sintáctico para **Mini-Triton**, un DSL simplificado inspirado en OpenAI Triton.
-Desarrollado como entregable de la actividad **3.2 — Gramáticas libres de contexto** del curso de Compiladores, Tecnológico de Monterrey.
+Parser descendente recursivo LL(1) para **Mini-Triton**, un DSL simplificado
+inspirado en OpenAI Triton. Desarrollado como tarea de compiladores.
 
-**Integrantes — Grupo 504**
+**Curso:** TC3002B — Compiladores, Grupo 504, Tec de Monterrey
+
+**Equipo:**
 
 | Nombre | Matrícula |
 |---|---|
@@ -166,8 +168,32 @@ Program
 ### Salida — archivo inválido (`invalid_05.tri`)
 
 ```
-INVALIDO: argumento con nombre 'mask=...' no permitido en línea 2, col 36
+INVALIDO: argumento con nombre 'mask=...' no permitido en línea 3, col 18
 ```
+
+### Correr todos los casos de prueba
+
+**Bash / Git Bash / WSL:**
+
+```bash
+for f in tests/valid_0{1..7}.tri tests/invalid_0{1..6}.tri; do
+  echo "=== $f ==="
+  python -X utf8 mini_triton_parser.py "$f"
+  echo
+done
+```
+
+**PowerShell:**
+
+```powershell
+foreach ($f in (Get-ChildItem tests\*.tri | Sort-Object Name)) {
+    Write-Host "=== $($f.Name) ==="
+    python -X utf8 mini_triton_parser.py $f.FullName
+    Write-Host ""
+}
+```
+
+Ver `tests/expected.md` para los mensajes de error exactos de cada caso.
 
 ### Nodos del AST
 

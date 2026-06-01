@@ -1,2 +1,4 @@
-# INVALIDO: instruccion 'if' fuera del alcance de Mini-Triton
-@triton.jit def f(x, y): { if x: { z = x + y; } }
+@triton.jit
+def control(x): {
+  if (x) { y = 1; }
+}
